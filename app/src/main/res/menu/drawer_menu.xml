@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="General">
+        <menu>
+            <item android:title="Home"
+                android:icon="@drawable/ic_home_black_24dp"
+                android:id="@+id/home">
+            </item>
+            <item android:title="My Account"
+                android:icon="@drawable/ic_account_circle_black_24dp"
+                android:id="@+id/my_Account">
+            </item>
+            <item android:title="My Orders"
+                android:icon="@drawable/ic_assignment_black_24dp"
+                android:id="@+id/my_Orders">
+            </item>
+            <item android:title="Promotion"
+                android:icon="@drawable/ic_shopping_cart_black_24dp"
+                android:id="@+id/Promotion">
+            </item>
+        </menu>
+
+    </item>
+
+    <item android:title="Communication">
+        <menu>
+            <item android:title="Setting"
+                android:icon="@drawable/ic_settings_black_24dp"
+                android:id="@+id/setting">
+            </item>
+            <item android:title="About"
+                android:icon="@drawable/ic_supervisor_account_black_24dp"
+                android:id="@+id/about">
+            </item>
+        </menu>
+
+    </item>
+</menu>
