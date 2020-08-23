@@ -290,7 +290,9 @@
             android:layout_width="match_parent"
             android:layout_height="400dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
+            android:layout_marginRight="10dp"
+            android:weightSum="10"
+            android:orientation="vertical">
             <GridView
                 android:id="@+id/gridview_pre_checkout"
                 android:layout_width="match_parent"
@@ -302,24 +304,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:weightSum="10"
             android:background="#fff"
             android:gravity="center"
             android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
             android:layout_height="50dp">
-            <Button
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:id="@+id/btn_check_out"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/button"
-                android:fontFamily="@font/alfa_slab_one"
-                android:text="Check out"
-                android:textColor="#313131"
-                android:textSize="16sp"></Button>
+
         </LinearLayout>
     </RelativeLayout>
 

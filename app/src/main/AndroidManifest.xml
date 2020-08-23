@@ -21,6 +21,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".app.Activities.Activity_Paypal" android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity android:name=".app.Activities.PaymentDetails" android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

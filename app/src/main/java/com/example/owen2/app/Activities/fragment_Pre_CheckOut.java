@@ -1,6 +1,7 @@
 package com.example.owen2.app.Activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -65,7 +66,7 @@ public class fragment_Pre_CheckOut extends Fragment {
     GridView gridView;
     ArrayList<Order_Detail> arrayList;
     Order_Detail_Adapter order_detail_adapter;
-    Button btn_checkout,btn_check_promt;
+    Button btn_checkout,btn_check_promt,btn_checkout_paypal;
     int Customer_ID;
     String CurrentDateTime;
     ArrayList<OrderDetail_ID> arrayList_id;
@@ -85,10 +86,11 @@ public class fragment_Pre_CheckOut extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view =inflater.inflate(R.layout.fragment_pre_checkout,container,false);
+        View view =inflater.inflate(R.layout.pre_checkout,container,false);
         edit_address =view.findViewById(R.id.pre_checkout_edit_address);
         edit_phone=view.findViewById(R.id.pre_checkout_edit_phone);
         btn_checkout =view.findViewById(R.id.btn_check_out);
+        btn_checkout_paypal=view.findViewById(R.id.btn_checkout_paypal);
         btn_check_promt=view.findViewById(R.id.btn_check_promotion);
         checkBox = view.findViewById(R.id.checkout_checkbox);
         txt_customer_name = view.findViewById(R.id.txt_pre_checkout_customer_name);
@@ -116,6 +118,14 @@ public class fragment_Pre_CheckOut extends Fragment {
             @Override
             public void onClick(View v) {
                 check_Out();
+            }
+        });
+        btn_checkout_paypal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getActivity(), Activity_Paypal.class);
+                startActivity(intent);
             }
         });
         return  view;
@@ -156,6 +166,8 @@ public class fragment_Pre_CheckOut extends Fragment {
 
 
     private void check_Out() {
+//        fragment_CheckOut  fragment_checkOut = new fragment_CheckOut();
+//        pushFragment(fragment_checkOut,getContext());
         process_Checkout();
     }
     private void process_Checkout(){
@@ -195,7 +207,6 @@ public class fragment_Pre_CheckOut extends Fragment {
                 }
                 return params;
             }
-
         };
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         requestQueue.add(stringRequest);

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".app.Activities.Activity_Paypal"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:weightSum="10"
+    android:background="#fff">
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5">
+        <ImageView
+            android:src="@drawable/paypal1"
+            android:layout_width="300dp"
+            android:layout_height="200dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center|top"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5">
+        <LinearLayout
+            android:background="@drawable/edittext_amount"
+            android:layout_marginBottom="20dp"
+            android:layout_width="350dp"
+            android:layout_height="50dp">
+            <EditText
+                android:background="@null"
+                android:textAlignment="center"
+                android:id="@+id/txt_amount"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Amount">
+            </EditText>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_checkout"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:background="@drawable/checkout"
+            android:fontFamily="sans-serif-black"
+            android:text="Check out"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:textStyle="bold"></Button>
+    </LinearLayout>
+
+
+
+</LinearLayout>
