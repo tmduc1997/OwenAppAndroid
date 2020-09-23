@@ -1,7 +1,7 @@
 package com.example.owen2.app.Ultil;
 
 public class server {
-    public  static  String localhost="192.168.1.114:8080";
+    public  static  String localhost="192.168.43.10:8080";
     //public  static  String localhost="owenctu.000webhostapp.com";
     public  static  String Link_get_ProductCategory ="http://"+localhost+"/Owen2/Clients/get_category.php";
     public  static  String Link_get_Same_Cate_Product ="http://"+localhost+"/Owen2/Clients/get_same_category_product.php";

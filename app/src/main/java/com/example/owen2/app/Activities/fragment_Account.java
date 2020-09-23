@@ -3,9 +3,6 @@ package com.example.owen2.app.Activities;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.location.Address;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,10 +14,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.android.volley.AuthFailureError;
@@ -31,11 +26,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.owen2.R;
-import com.example.owen2.app.Models.Product;
 import com.example.owen2.app.Ultil.SessionManager;
 import com.example.owen2.app.Ultil.checkConnection;
 import com.example.owen2.app.Ultil.server;
-import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -48,7 +41,7 @@ public class fragment_Account extends Fragment {
 
     Dialog dialog;
     TextView txt_image,txt_fullname,txt_email,txt_id,txt_score,txt_phone,txt_pass,txt_address;
-    ImageView img_change_name,img_change_phone,img_confim_password;
+    ImageView img_change_name,img_change_phone,img_change_address,img_change_password;
     ImageView img_logout,img_home;
     int Customer_ID=0;
     SessionManager sessionManager;
@@ -87,6 +80,8 @@ public class fragment_Account extends Fragment {
         });
         img_change_name = view.findViewById(R.id.img_change_name);
         img_change_phone =view.findViewById(R.id.img_change_phone);
+        img_change_address=view.findViewById(R.id.img_change_address);
+        img_change_password=view.findViewById(R.id.img_change_password);
         img_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,6 +102,20 @@ public class fragment_Account extends Fragment {
             @Override
             public void onClick(View v) {
                 showDialog_Change_Phone();
+            }
+        });
+
+        img_change_address.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog_Change_Address();
+            }
+        });
+
+        img_change_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog_Confirm();
             }
         });
         return  view;
@@ -258,16 +267,16 @@ public class fragment_Account extends Fragment {
 
     }
 
-    public void showDialog_Confirm(){
+    public void showDialog_Change_Address(){
         final EditText editText;
         TextView txt_cancel,txt_save;
         dialog = new Dialog(getActivity());
         dialog.setCancelable(true);
-        View view  = getActivity().getLayoutInflater().inflate(R.layout.confirm_change_password, null);
-        txt_cancel = view.findViewById(R.id.txt_confirm_change_close);
-        txt_save =view.findViewById(R.id.txt_confim_change_password_OK);
-        editText = view.findViewById(R.id.edit_current_password);
-       // editText.setText(""+txt_phone.getText());
+        View view  = getActivity().getLayoutInflater().inflate(R.layout.change_address, null);
+        txt_cancel = view.findViewById(R.id.txt_change_address_close);
+        txt_save =view.findViewById(R.id.txt_change_address_save);
+        editText = view.findViewById(R.id.edit_change_address);
+        editText.setText(""+txt_address.getText());
         txt_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -277,7 +286,84 @@ public class fragment_Account extends Fragment {
         txt_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String name =editText.getText().toString().trim();
+                if(name.length()<=0){
+                    Toast.makeText(getContext(),"Please, Enter your address !",Toast.LENGTH_LONG).show();
+                }else {
+                    update_Address(name,Customer_ID);
+                    txt_address.setText(name);
+                    dialog.dismiss();
+                }
+            }
+        });
+        dialog.setContentView(view);
+        dialog.show();
+//        FragmentManager manager = getFragmentManager();
+//        Dialog_name dialog_name = new Dialog_name();
+//        dialog_name.show(manager,"My dialog");
 
+
+    }
+
+    public void showDialog_Change_Password(){
+        final EditText editText;
+        TextView txt_cancel,txt_save;
+        dialog = new Dialog(getActivity());
+        dialog.setCancelable(true);
+        View view  = getActivity().getLayoutInflater().inflate(R.layout.change_password, null);
+        txt_cancel = view.findViewById(R.id.txt_change_password_close);
+        txt_save =view.findViewById(R.id.txt_change_password_save);
+        editText = view.findViewById(R.id.edit_change_password);
+        editText.setText(""+txt_pass.getText());
+        txt_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        txt_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name =editText.getText().toString().trim();
+                if(name.length()<=0){
+                    Toast.makeText(getContext(),"Please, Enter your password !",Toast.LENGTH_LONG).show();
+                }else {
+                    update_Password(name,Customer_ID);
+                    txt_address.setText(name);
+                    dialog.dismiss();
+                }
+            }
+        });
+        dialog.setContentView(view);
+        dialog.show();
+//        FragmentManager manager = getFragmentManager();
+//        Dialog_name dialog_name = new Dialog_name();
+//        dialog_name.show(manager,"My dialog");
+
+
+    }
+
+    public void showDialog_Confirm(){
+        final EditText editText;
+        TextView txt_cancel,txt_save;
+        dialog = new Dialog(getActivity());
+        dialog.setCancelable(true);
+        View view  = getActivity().getLayoutInflater().inflate(R.layout.confirm_change_password, null);
+        txt_cancel = view.findViewById(R.id.txt_confirm_change_close);
+        txt_save =view.findViewById(R.id.txt_confim_change_password_OK);
+        editText = view.findViewById(R.id.edit_current_password);
+
+        txt_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        txt_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Login_process(txt_email.getText().toString().trim(),editText.getText().toString().trim());
+                dialog.dismiss();
             }
         });
         dialog.setContentView(view);
@@ -414,8 +500,9 @@ public class fragment_Account extends Fragment {
             @Override
             public void onResponse(String response) {
                 if(response.isEmpty()){
-                    Toast.makeText(getContext(),"Password or email is not correct",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),"Password is not correct",Toast.LENGTH_SHORT).show();
                 }else {
+                    showDialog_Change_Password();
                     //Toast.makeText(getContext(),"Login is success",Toast.LENGTH_SHORT).show();
                     String Email;
                     String Avatar;
@@ -423,15 +510,6 @@ public class fragment_Account extends Fragment {
                     try {
                         JSONArray jsonArray = new JSONArray(response);
                         for (int i=0; i<jsonArray.length();i++){
-
-                            JSONObject jsonObject = jsonArray.getJSONObject(i);
-                            Email = jsonObject.getString("Email");
-                            Customer_ID=jsonObject.getInt("Customer_ID");
-                            Avatar=jsonObject.getString("Avatar");
-                            //sessionManager.createSession(Email,Customer_ID,Avatar);
-
-
-                            //Toast.makeText(getContext(),"Email: "+Email+"\nCustomerid: "+Customer_ID+"\nAvatar: "+Avatar,Toast.LENGTH_SHORT).show();
                             FragmentTransaction transaction = ((FragmentActivity)getContext()).getSupportFragmentManager().beginTransaction();
                             transaction.replace(R.id.full_screen, new fragment_Account());
                             transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);

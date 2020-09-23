@@ -265,6 +265,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="15">
                 <ImageView
+                    android:id="@+id/img_change_address"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:src="@drawable/ic_navigate_next_black_24dp">
