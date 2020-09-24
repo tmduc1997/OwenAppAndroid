@@ -25,23 +25,142 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="5">
+
+        //Source
         <LinearLayout
-            android:background="@drawable/edittext_amount"
-            android:layout_marginBottom="20dp"
-            android:layout_width="350dp"
-            android:layout_height="50dp">
-            <EditText
-                android:background="@null"
-                android:textAlignment="center"
-                android:id="@+id/txt_amount"
-                android:inputType="number"
-                android:layout_width="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+            <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:hint="Amount">
-            </EditText>
+                android:layout_weight="5">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="Source"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginRight="20dp"
+                android:gravity="center|right"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Paypal gateway"></TextView>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        //Transaction fees
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+            <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="Transaction fees"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginRight="20dp"
+                android:gravity="center|right"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 VND"></TextView>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        //beneficiary unit
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+            <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="beneficiary unit"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginRight="20dp"
+                android:gravity="center|right"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Owen"></TextView>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        //amount
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+            <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="Amount"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginRight="20dp"
+                android:gravity="center|right"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5">
+                <TextView
+                    android:id="@+id/txt_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""></TextView>
+            </LinearLayout>
+
+
         </LinearLayout>
 
         <Button
+            android:layout_marginTop="40dp"
             android:id="@+id/btn_checkout"
             android:layout_width="350dp"
             android:layout_height="50dp"

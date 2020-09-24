@@ -125,6 +125,19 @@ public class fragment_Pre_CheckOut extends Fragment {
             public void onClick(View v) {
 
                 Intent intent = new Intent(getActivity(), Activity_Paypal.class);
+                String a = Tong-Discount +"";
+                intent.putExtra("amount",a);
+                // push info for checkout in paypal activity
+                intent.putExtra("Customer_ID",String.valueOf(Customer_ID));
+                intent.putExtra("Score",String.valueOf(intcore));
+                intent.putExtra("Discount",String.valueOf(Discount));
+                intent.putExtra("CreateDate",String.valueOf(CurrentDateTime));
+                intent.putExtra("Order_ID",String.valueOf(Order_ID));
+                intent.putExtra("SL",String.valueOf(arrayList_id.size()));
+                for (int i=0;i<arrayList_id.size();i++){
+                    intent.putExtra("OrderDetail_ID"+i,String.valueOf(arrayList_id.get(i).getID()));
+                    intent.putExtra("Quantity"+i,String.valueOf(arrayList_id.get(i).getQuantity()));
+                }
                 startActivity(intent);
             }
         });
