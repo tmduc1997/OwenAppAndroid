@@ -109,7 +109,7 @@ public class fragment_Product extends Fragment implements  SwipeRefreshLayout.On
                 if(!load && (firstVisibleItem+visibleItemCount >=totalItemCount )){
                     getNext();
                     load=true;
-                    Toast.makeText(getContext(),"Page number: "+page,Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getContext(),"Page number: "+page,Toast.LENGTH_LONG).show();
                 }
 
             }

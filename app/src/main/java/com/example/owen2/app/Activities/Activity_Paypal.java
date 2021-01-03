@@ -144,6 +144,8 @@ public class Activity_Paypal extends AppCompatActivity {
             ID[i]=id;
             Quantity[i]=quantity;
         }
+
+        finish();
 //        Toast.makeText(getApplicationContext(),amount+"\n"+Customer_ID+"\n"+intcore+"\n"+Discount+"\n"+CurrentDateTime+"\n"+Order_ID+"\n"+count,Toast.LENGTH_LONG).show();
 //
 //        for(int i=0;i<count;i++){

@@ -379,7 +379,7 @@ public class fragment_Detail extends Fragment {
                         JSONArray jsonArray = new JSONArray(response);
                         JSONObject jsonObject = jsonArray.getJSONObject(0);
                         Order_ID=jsonObject.getInt("Order_ID");
-                        Toast.makeText(getContext(),"Order_ID"+Order_ID,Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getContext(),"Order_ID"+Order_ID,Toast.LENGTH_SHORT).show();
                     } catch (JSONException e) {
                         Toast.makeText(getContext(),"error",Toast.LENGTH_LONG).show();
                     }
@@ -411,9 +411,9 @@ public class fragment_Detail extends Fragment {
             @Override
             public void onResponse(String response) {
                 if(response.isEmpty()){
-                    Toast.makeText(getContext(),"Make card fail",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),"Making card was fail",Toast.LENGTH_SHORT).show();
                 }else {
-                    Toast.makeText(getContext(),"Make card success",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getContext(),"Make card success",Toast.LENGTH_SHORT).show();
                     click_Add_Processing(Customer_ID);
                 }
 
@@ -442,7 +442,7 @@ public class fragment_Detail extends Fragment {
             @Override
             public void onResponse(String response) {
                 if(response.isEmpty()){
-                    Toast.makeText(getContext(),"product is not exist",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getContext(),"product is not exist",Toast.LENGTH_SHORT).show();
                     add_To_Card(intOrderID,Product_ID,Price,selectSize);
                 }else {
                     int OrderDetail_ID=0;
@@ -490,16 +490,16 @@ public class fragment_Detail extends Fragment {
             @Override
             public void onResponse(String response) {
                 if(response.isEmpty()){
-                    Toast.makeText(getContext(),"add to card was fail",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),"Adding to card was fail",Toast.LENGTH_SHORT).show();
                 }else {
-                    Toast.makeText(getContext(),"add to card was success",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),"Adding to card was success",Toast.LENGTH_SHORT).show();
                 }
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getContext(),"register error",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"registration error",Toast.LENGTH_SHORT).show();
             }
         })
         {

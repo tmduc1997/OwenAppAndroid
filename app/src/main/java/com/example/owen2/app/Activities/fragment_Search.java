@@ -96,7 +96,7 @@ public class fragment_Search extends Fragment implements  SwipeRefreshLayout.OnR
                 if(!load && (firstVisibleItem+visibleItemCount >=totalItemCount )){
                     getNext(search);
                     load=true;
-                    Toast.makeText(getContext(),"Page number: "+page,Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getContext(),"Page number: "+page,Toast.LENGTH_LONG).show();
                 }
 
             }

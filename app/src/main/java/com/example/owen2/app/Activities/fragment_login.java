@@ -87,7 +87,7 @@ public class fragment_login extends Fragment {
 
     private void Process_Login(){
         if(!ValidateEmail() | !ValidatePassword()){
-            Toast.makeText(getContext(),"NO",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(),"Vui lòng nhập đủ các trường !",Toast.LENGTH_SHORT).show();
         }else {
             //Toast.makeText(getContext(),"YES",Toast.LENGTH_SHORT).show();
             Login_process2(text_email,text_password);
