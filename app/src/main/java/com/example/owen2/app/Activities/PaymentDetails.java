@@ -51,7 +51,7 @@ public class PaymentDetails extends AppCompatActivity {
         try {
             txt_id.setText("Transaction ID: "+response.getString("id"));
             txt_status.setText("Transaction status : "+response.getString("state"));
-            txt_amount.setText("Payment amount : "+"$"+paymentAmount);
+            txt_amount.setText("Payment amount : "+"$"+response.getString(paymentAmount));
         } catch (JSONException e) {
             e.printStackTrace();
         }
